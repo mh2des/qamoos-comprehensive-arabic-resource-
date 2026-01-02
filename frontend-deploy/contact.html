@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا - القاموس العربي الشامل</title>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMTXZ4F8QF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZMTXZ4F8QF');
+    </script>
+    
+    <!-- Font Awesome Professional Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Cairo', sans-serif; background: #F8F5F0; line-height: 1.8; color: #1B4332; }
+        
+        /* Scroll Progress Bar */
+        .progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, #D4AF37 0%, #FFD700 100%); width: 0%; z-index: 9999; transition: width 0.1s ease; }
+        
+        .header { 
+            background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%); 
+            padding: 2rem; 
+            text-align: center; 
+            color: white; 
+            background-size: 200% 200%;
+            animation: gradientShift 10s ease infinite;
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .header h1 { font-family: 'Amiri', serif; font-size: 2.5rem; margin-bottom: 0.5rem; color: #D4AF37; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .container { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
+        .content { 
+            background: white; 
+            padding: 3rem; 
+            border-radius: 16px; 
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1); 
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .content:hover { transform: translateY(-5px); box-shadow: 0 15px 50px rgba(0,0,0,0.15); }
+        .content h2 { color: #1B4332; font-size: 1.8rem; margin: 2rem 0 1rem; border-right: 4px solid #D4AF37; padding-right: 1rem; }
+        .content p { margin-bottom: 1.5rem; color: #52796F; font-size: 1.1rem; }
+        .contact-methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .contact-card { 
+            background: linear-gradient(135deg, #F8F5F0 0%, #E8E0D5 100%); 
+            padding: 2rem; 
+            border-radius: 12px; 
+            text-align: center; 
+            transition: all 0.4s ease; 
+            border: 2px solid transparent; 
+        }
+        .contact-card:hover { 
+            transform: translateY(-10px) scale(1.05); 
+            border-color: #D4AF37; 
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+        .contact-card .icon { font-size: 3rem; margin-bottom: 1rem; color: #2D6A4F; transition: transform 0.3s; }
+        .contact-card:hover .icon { transform: rotate(10deg) scale(1.1); }
+        .contact-card h3 { color: #1B4332; margin-bottom: 0.75rem; }
+        .contact-card p { color: #52796F; font-size: 1rem; }
+        .contact-card a { color: #2D6A4F; text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        .contact-card a:hover { color: #D4AF37; }
+        .form-section { background: #F8F5F0; padding: 2rem; border-radius: 12px; margin: 2rem 0; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; color: #1B4332; font-weight: 600; margin-bottom: 0.5rem; }
+        .form-group input, .form-group textarea, .form-group select { 
+            width: 100%; 
+            padding: 0.75rem; 
+            border: 2px solid #D8E2DC; 
+            border-radius: 8px; 
+            font-family: 'Cairo', sans-serif; 
+            font-size: 1rem; 
+            transition: all 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { 
+            outline: none; 
+            border-color: #D4AF37; 
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+            transform: scale(1.02);
+        }
+        .submit-btn { 
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%); 
+            color: #1B4332; 
+            padding: 1rem 2rem; 
+            border: none; 
+            border-radius: 8px; 
+            font-size: 1.1rem; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: all 0.4s; 
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        .submit-btn:hover { 
+            background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%); 
+            color: #D4AF37; 
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(27, 67, 50, 0.4);
+        }
+        .faq-section { margin: 2rem 0; }
+        .faq-item { 
+            background: linear-gradient(135deg, #F8F5F0 0%, #E8E0D5 100%); 
+            padding: 1.5rem; 
+            margin: 1rem 0; 
+            border-radius: 8px; 
+            border-right: 3px solid #95D5B2; 
+            transition: all 0.3s;
+        }
+        .faq-item:hover { 
+            transform: translateX(-10px); 
+            border-right-color: #D4AF37;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .faq-item h3 { color: #1B4332; margin-bottom: 0.5rem; }
+        .faq-item p { color: #52796F; margin-bottom: 0; }
+        .back-link { 
+            display: inline-block; 
+            margin-top: 2rem; 
+            color: #1B4332; 
+            text-decoration: none; 
+            font-weight: 600; 
+            padding: 0.75rem 1.5rem; 
+            background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%); 
+            border-radius: 8px; 
+            transition: all 0.4s; 
+        }
+        .back-link:hover { 
+            background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%); 
+            color: #D4AF37; 
+            transform: translateX(-5px);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .content { padding: 1.5rem; }
+            .contact-methods { grid-template-columns: 1fr; }
+        }
+        .info-box { background: #FFF9E6; border: 2px solid #D4AF37; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <div class="header">
+        <h1 data-aos="fade-down">تواصل معنا</h1>
+        <p data-aos="fade-up" data-aos-delay="200">نسعد بتلقي ملاحظاتك واقتراحاتك</p>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <p data-aos="fade-up">
+                نحن هنا للاستماع إليك! سواء كان لديك سؤال، اقتراح، ملاحظة على المحتوى، أو ترغب في التعاون معنا، لا تتردد في التواصل.
+            </p>
+
+            <h2 data-aos="fade-right"><i class="fas fa-envelope-open-text"></i> طرق التواصل</h2>
+            <div class="contact-methods">
+                <div class="contact-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <h3>البريد الإلكتروني</h3>
+                    <p>للاستفسارات العامة:</p>
+                    <a href="mailto:info@qamoos.org">info@qamoos.org</a>
+                </div>
+
+                <div class="contact-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon"><i class="fas fa-bug"></i></div>
+                    <h3>الإبلاغ عن أخطاء</h3>
+                    <p>وجدت خطأ في المحتوى؟</p>
+                    <a href="mailto:bugs@qamoos.org">bugs@qamoos.org</a>
+                </div>
+
+                <div class="contact-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>التعاون والشراكات</h3>
+                    <p>للتعاون والمقترحات:</p>
+                    <a href="mailto:partnerships@qamoos.org">partnerships@qamoos.org</a>
+                </div>
+
+                <div class="contact-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>وسائل التواصل الاجتماعي</h3>
+                    <p>تابعنا على:</p>
+                    <a href="https://x.com/qamoos_ar" target="_blank" rel="noopener">تويتر (X)</a>
+                    <a href="https://www.instagram.com/qamoos_ar" target="_blank" rel="noopener">إنستغرام</a>
+                </div>
+            </div>
+
+            <h2 data-aos="fade-right"><i class="fas fa-edit"></i> نموذج التواصل</h2>
+            <div class="form-section" data-aos="fade-up">
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">الاسم *</label>
+                        <input type="text" id="name" name="name" required placeholder="أدخل اسمك">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني *</label>
+                        <input type="email" id="email" name="email" required placeholder="example@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">نوع الرسالة *</label>
+                        <select id="category" name="category" required>
+                            <option value="">-- اختر نوع الرسالة --</option>
+                            <option value="suggestion">اقتراح تحسين</option>
+                            <option value="bug">الإبلاغ عن خطأ</option>
+                            <option value="content">ملاحظة على المحتوى</option>
+                            <option value="technical">مشكلة تقنية</option>
+                            <option value="partnership">تعاون أو شراكة</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">الرسالة *</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="اكتب رسالتك هنا..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                </form>
+
+                <div class="info-box" style="margin-top: 1.5rem;">
+                    <strong><i class="fas fa-clock"></i> وقت الاستجابة:</strong> نحاول الرد على جميع الرسائل خلال 48 ساعة عمل.
+                </div>
+            </div>
+
+            <h2 data-aos="fade-right"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</h2>
+            <div class="faq-section">
+                <div class="faq-item" data-aos="fade-right" data-aos-delay="100">
+                    <h3>كيف يمكنني الإبلاغ عن خطأ في تعريف؟</h3>
+                    <p>
+                        يمكنك إرسال بريد إلكتروني إلى <strong>bugs@qamoos.org</strong> مع تحديد: الكلمة المعنية، المعجم، والخطأ المحدد. سنقوم بمراجعته وتصحيحه في أقرب وقت.
+                    </p>
+                </div>
+
+                <div class="faq-item" data-aos="fade-right" data-aos-delay="150">
+                    <h3>هل يمكنني اقتراح إضافة معجم جديد؟</h3>
+                    <p>
+                        نعم! نرحب بمقترحاتكم. أرسل لنا اسم المعجم ومعلومات عنه على <strong>info@qamoos.org</strong>. سنقوم بدراسة إمكانية إضافته.
+                    </p>
+                </div>
+
+                <div class="faq-item" data-aos="fade-right" data-aos-delay="200">
+                    <h3>كيف يمكنني استخدام القاموس في مشروعي؟</h3>
+                    <p>
+                        للاستخدام الشخصي والتعليمي، يمكنك استخدام القاموس مجاناً. للاستخدام التجاري أو دمج API في مشروعك، يرجى التواصل معنا على <strong>partnerships@qamoos.org</strong>.
+                    </p>
+                </div>
+
+                <div class="faq-item" data-aos="fade-right" data-aos-delay="250">
+                    <h3>هل توفرون API للمطورين؟</h3>
+                    <p>
+                        نعم، نوفر API عام محدود. للحصول على وصول موسع أو استخدام تجاري، يرجى التواصل معنا للحصول على مفتاح API خاص.
+                    </p>
+                </div>
+
+                <div class="faq-item" data-aos="fade-right" data-aos-delay="300">
+                    <h3>كيف يمكنني المساهمة في تحسين القاموس؟</h3>
+                    <p>
+                        يمكنك المساهمة من خلال:
+                        <br>• الإبلاغ عن الأخطاء
+                        <br>• اقتراح تحسينات
+                        <br>• مشاركة القاموس مع الآخرين
+                        <br>• المساهمة في الترجمة (إن توفرت)
+                    </p>
+                </div>
+            </div>
+
+            <h2><i class="fas fa-share-alt"></i> تابعنا على وسائل التواصل</h2>
+            <div class="contact-methods">
+                <div class="contact-card">
+                    <div class="icon"><i class="fab fa-twitter"></i></div>
+                    <h3>تويتر</h3>
+                    <a href="https://x.com/qamoos_ar" target="_blank" rel="noopener">@qamoos_ar</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="icon"><i class="fab fa-instagram"></i></div>
+                    <h3>إنستغرام</h3>
+                    <a href="https://www.instagram.com/qamoos_ar" target="_blank" rel="noopener">@qamoos_ar</a>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3><i class="fas fa-handshake"></i> نود سماع رأيك!</h3>
+                <p>
+                    ملاحظاتك واقتراحاتك تساعدنا على تحسين القاموس باستمرار. كل رسالة مهمة بالنسبة لنا، ونحن ملتزمون بتقديم أفضل تجربة ممكنة للمستخدمين.
+                </p>
+            </div>
+
+            <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> العودة للصفحة الرئيسية</a>
+        </div>
+    </div>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const form = document.getElementById('contactForm');
+            const formData = new FormData(form);
+            
+            // Get form values
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const category = formData.get('category');
+            const message = formData.get('message');
+            
+            // Create email body
+            const subject = encodeURIComponent(`[قاموس] ${category} - من ${name}`);
+            const body = encodeURIComponent(
+                `الاسم: ${name}\n` +
+                `البريد الإلكتروني: ${email}\n` +
+                `نوع الرسالة: ${category}\n\n` +
+                `الرسالة:\n${message}`
+            );
+            
+            // Open email client
+            window.location.href = `mailto:info@qamoos.org?subject=${subject}&body=${body}`;
+            
+            // Show confirmation
+            alert('شكراً لتواصلك معنا! سيتم فتح برنامج البريد الإلكتروني لإرسال رسالتك.');
+            
+            // Reset form
+            form.reset();
+        }
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Scroll progress bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+    </script>
+</body>
+</html>

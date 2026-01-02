@@ -1,0 +1,762 @@
+ <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بحث - القاموس العربي الشامل</title>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMTXZ4F8QF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZMTXZ4F8QF');
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1B4332;
+            --primary-light: #2D6A4F;
+            --secondary: #D4AF37;
+            --bg: #F8F5F0;
+            --card-bg: #FFFFFF;
+            --text: #1B4332;
+            --text-muted: #52796F;
+            --border: #D8E2DC;
+            --shadow: 0 2px 8px rgba(27, 67, 50, 0.08);
+            --font-arabic: 'Amiri', serif;
+            --font-ui: 'Cairo', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-ui);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            padding: 1.5rem;
+            color: white;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0.5rem;
+            position: relative;
+        }
+
+        .search-input-wrapper {
+            flex: 1;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-family: var(--font-arabic);
+            transition: box-shadow 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+        }
+
+        .search-box button {
+            padding: 0.75rem 2rem;
+            background: var(--secondary);
+            color: var(--primary);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .search-box button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Autocomplete Dropdown Styles */
+        .autocomplete-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 8px 24px rgba(27, 67, 50, 0.15);
+            max-height: 280px;
+            overflow-y: auto;
+            z-index: 9999;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .autocomplete-dropdown.active {
+            display: block;
+            animation: fadeIn 0.15s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .autocomplete-item {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.15s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .autocomplete-item:last-child {
+            border-bottom: none;
+        }
+
+        .autocomplete-item:hover,
+        .autocomplete-item.selected {
+            background: #F8F5F0;
+        }
+
+        .autocomplete-headword {
+            font-family: var(--font-arabic);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            flex: 1;
+        }
+
+        .autocomplete-dict {
+            font-size: 0.75rem;
+            color: white;
+            background: var(--primary-light);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            margin-right: 0.5rem;
+        }
+
+        .autocomplete-loading {
+            padding: 1rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .autocomplete-no-results {
+            padding: 1rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Loading spinner */
+        .autocomplete-loading::after {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border: 2px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+            margin-right: 0.5rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .filter-bar {
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-bar label {
+            font-weight: 600;
+        }
+
+        .filter-bar select {
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: var(--font-ui);
+        }
+
+        .results-info {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        .error {
+            background: #fee;
+            border: 1px solid #fcc;
+            padding: 1rem;
+            border-radius: 8px;
+            color: #c33;
+        }
+
+        .result-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+            border-right: 4px solid var(--primary);
+        }
+
+        .result-card:hover {
+            box-shadow: 0 4px 16px rgba(27, 67, 50, 0.12);
+        }
+
+        .headword {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-family: var(--font-arabic);
+        }
+
+        .root {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .sub-entries {
+            background: #F8F5F0;
+            padding: 0.75rem;
+            border-radius: 6px;
+            margin: 0.75rem 0;
+            font-family: var(--font-arabic);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        .sub-entries strong {
+            color: var(--primary);
+            font-weight: 600;
+            display: inline-block;
+            margin-left: 0.5rem;
+        }
+
+        .page-ref {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin: 0.5rem 0;
+            font-weight: 500;
+        }
+
+        .dictionary-name {
+            display: inline-block;
+            background: var(--primary-light);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .definition {
+            font-family: var(--font-arabic);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text);
+            margin-top: 0.75rem;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .no-results h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/" style="text-decoration: none; color: inherit;">
+            <div class="logo">القاموس</div>
+        </a>
+        <div class="search-box">
+            <div class="search-input-wrapper">
+                <input type="text" id="searchInput" placeholder="ابحث عن أي كلمة عربية..." autocomplete="off">
+                <div id="autocompleteDropdown" class="autocomplete-dropdown"></div>
+            </div>
+            <button id="searchBtn">بحث</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="filter-bar">
+            <label for="dictionaryFilter">اختر المعجم:</label>
+            <select id="dictionaryFilter">
+                <option value="">جميع المعاجم</option>
+            </select>
+            
+            <label for="searchMode">نوع البحث:</label>
+            <select id="searchMode">
+                <option value="all">شامل</option>
+                <option value="exact">مطابق تماماً</option>
+                <option value="starts">يبدأ بـ</option>
+                <option value="root">بحث بالجذر</option>
+            </select>
+        </div>
+
+        <div id="resultsInfo" class="results-info"></div>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+        const resultsDiv = document.getElementById('results');
+        const resultsInfo = document.getElementById('resultsInfo');
+        const dictionaryFilter = document.getElementById('dictionaryFilter');
+        const searchMode = document.getElementById('searchMode');
+        const autocompleteDropdown = document.getElementById('autocompleteDropdown');
+
+        // Autocomplete state
+        let autocompleteCache = {};
+        let debounceTimer = null;
+        let currentSuggestions = [];
+        let selectedIndex = -1;
+        let isAutocompleteVisible = false;
+
+        // Load dictionaries
+        async function loadDictionaries() {
+            try {
+                const response = await fetch('/api/dictionaries');
+                const data = await response.json();
+                const dicts = data.dictionaries || data; // Handle both formats
+                dicts.forEach(dict => {
+                    const option = document.createElement('option');
+                    option.value = dict.id;
+                    option.textContent = dict.name_arabic;
+                    dictionaryFilter.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error loading dictionaries:', error);
+            }
+        }
+
+        // Debounce function for performance
+        function debounce(func, delay) {
+            return function(...args) {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => func.apply(this, args), delay);
+            };
+        }
+
+        // Fetch autocomplete suggestions
+        async function fetchSuggestions(query) {
+            if (!query || query.length < 2) {
+                hideAutocomplete();
+                return;
+            }
+
+            // Check cache first - INSTANT display!
+            const cacheKey = `${query}_${dictionaryFilter.value}`;
+            if (autocompleteCache[cacheKey]) {
+                displaySuggestions(autocompleteCache[cacheKey]);
+                return; // Return immediately if cached
+            }
+
+            // Show loading state only if not cached
+            showAutocompleteLoading();
+
+            try {
+                let url = `/api/search?q=${encodeURIComponent(query)}&mode=starts&limit=10`;
+                if (dictionaryFilter.value) {
+                    url += `&dictionary_id=${dictionaryFilter.value}`;
+                }
+
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Search failed');
+
+                const data = await response.json();
+                const suggestions = Array.isArray(data) ? data : (data.results || []);
+
+                // Cache results
+                autocompleteCache[cacheKey] = suggestions;
+
+                // Limit cache size to last 100 queries
+                const cacheKeys = Object.keys(autocompleteCache);
+                if (cacheKeys.length > 100) {
+                    delete autocompleteCache[cacheKeys[0]];
+                }
+
+                displaySuggestions(suggestions);
+            } catch (error) {
+                console.error('Autocomplete error:', error);
+                hideAutocomplete();
+            }
+        }
+
+        // Display autocomplete suggestions
+        function displaySuggestions(suggestions) {
+            currentSuggestions = suggestions;
+            selectedIndex = -1;
+
+            if (!suggestions || suggestions.length === 0) {
+                autocompleteDropdown.innerHTML = '<div class="autocomplete-no-results">لا توجد اقتراحات</div>';
+                autocompleteDropdown.classList.add('active');
+                isAutocompleteVisible = true;
+                return;
+            }
+
+            autocompleteDropdown.innerHTML = suggestions.map((item, index) => {
+                const dictName = item.dictionary_name || item.dictionary || '';
+                
+                return `
+                    <div class="autocomplete-item" data-index="${index}">
+                        <div class="autocomplete-headword">${item.headword || ''}</div>
+                        ${dictName ? `<div class="autocomplete-dict">${dictName}</div>` : ''}
+                    </div>
+                `;
+            }).join('');
+
+            autocompleteDropdown.classList.add('active');
+            isAutocompleteVisible = true;
+
+            // Add click listeners
+            const items = autocompleteDropdown.querySelectorAll('.autocomplete-item');
+            items.forEach((item, index) => {
+                item.addEventListener('click', () => selectSuggestion(index));
+                item.addEventListener('mouseenter', () => highlightSuggestion(index));
+            });
+        }
+
+        // Get preview text from entry
+        function getPreviewText(entry) {
+            let text = '';
+            
+            if (Array.isArray(entry.definitions) && entry.definitions.length > 0) {
+                text = entry.definitions[0];
+            } else if (entry.full_text) {
+                text = entry.full_text;
+            } else if (entry.definition_text) {
+                text = entry.definition_text;
+            }
+
+            // Clean HTML tags and limit length
+            text = text.replace(/<[^>]*>/g, '');
+            text = text.replace(/&nbsp;/g, ' ');
+            text = text.trim();
+            
+            if (text.length > 100) {
+                text = text.substring(0, 100) + '...';
+            }
+
+            return text;
+        }
+
+        // Show loading state
+        function showAutocompleteLoading() {
+            autocompleteDropdown.innerHTML = '<div class="autocomplete-loading">جاري البحث...</div>';
+            autocompleteDropdown.classList.add('active');
+            isAutocompleteVisible = true;
+        }
+
+        // Hide autocomplete
+        function hideAutocomplete() {
+            autocompleteDropdown.classList.remove('active');
+            isAutocompleteVisible = false;
+            selectedIndex = -1;
+        }
+
+        // Highlight suggestion
+        function highlightSuggestion(index) {
+            const items = autocompleteDropdown.querySelectorAll('.autocomplete-item');
+            items.forEach((item, i) => {
+                if (i === index) {
+                    item.classList.add('selected');
+                } else {
+                    item.classList.remove('selected');
+                }
+            });
+            selectedIndex = index;
+        }
+
+        // Select suggestion
+        function selectSuggestion(index) {
+            if (index >= 0 && index < currentSuggestions.length) {
+                const suggestion = currentSuggestions[index];
+                searchInput.value = suggestion.headword;
+                hideAutocomplete();
+                performSearch();
+            }
+        }
+
+        // Keyboard navigation
+        function handleKeyboardNavigation(e) {
+            if (!isAutocompleteVisible || currentSuggestions.length === 0) return;
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                selectedIndex = (selectedIndex + 1) % currentSuggestions.length;
+                highlightSuggestion(selectedIndex);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                selectedIndex = selectedIndex <= 0 ? currentSuggestions.length - 1 : selectedIndex - 1;
+                highlightSuggestion(selectedIndex);
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                if (selectedIndex >= 0) {
+                    selectSuggestion(selectedIndex);
+                } else {
+                    hideAutocomplete();
+                    performSearch();
+                }
+            } else if (e.key === 'Escape') {
+                hideAutocomplete();
+            }
+        }
+
+        // Perform search
+        async function performSearch() {
+            const query = searchInput.value.trim();
+            if (!query) {
+                resultsDiv.innerHTML = '';
+                resultsInfo.textContent = '';
+                return;
+            }
+
+            const dict_id = dictionaryFilter.value;
+            const mode = searchMode.value;
+
+            resultsDiv.innerHTML = '<div class="loading">جاري البحث...</div>';
+            resultsInfo.textContent = '';
+
+            // Track search in GA4
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'search', {
+                    search_term: query,
+                    dictionary_filter: dict_id || 'all',
+                    search_mode: mode
+                });
+            }
+
+            try {
+                let url = `/api/search?q=${encodeURIComponent(query)}&mode=${mode}`;
+                if (dict_id) url += `&dictionary_id=${dict_id}`;
+
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (!response.ok) {
+                    const message = (data && data.error) ? data.error : 'خطأ غير متوقع في الخادم';
+                    throw new Error(message);
+                }
+
+                const resultsArray = Array.isArray(data)
+                    ? data
+                    : Array.isArray(data.results)
+                        ? data.results
+                        : [];
+                const total = Array.isArray(data)
+                    ? data.length
+                    : (typeof data.total_results === 'number' ? data.total_results : resultsArray.length);
+
+                displayResults(resultsArray, query, total);
+                updateURL(query);
+            } catch (error) {
+                resultsDiv.innerHTML = `<div class="error">خطأ في الاتصال بالخادم: ${error.message}</div>`;
+            }
+        }
+
+        // Display results
+        function displayResults(results, query, totalResults) {
+            if (!results || results.length === 0) {
+                resultsDiv.innerHTML = `
+                    <div class="no-results">
+                        <h2>لم يتم العثور على نتائج</h2>
+                        <p>لم نجد نتائج للكلمة "<strong>${query}</strong>"</p>
+                        <p>جرب البحث بكلمات أخرى أو استخدم خيارات بحث مختلفة</p>
+                    </div>
+                `;
+                resultsInfo.textContent = '';
+                return;
+            }
+
+            resultsInfo.textContent = `تم العثور على ${totalResults} نتيجة`;
+
+            resultsDiv.innerHTML = results.map(entry => {
+                const defs = Array.isArray(entry.definitions) && entry.definitions.length
+                    ? entry.definitions.join('<br>')
+                    : (entry.full_text || entry.definition_text || 'لا يوجد تعريف');
+                
+                // Show plurals if available
+                let pluralsHtml = '';
+                if (entry.plurals && entry.plurals.length > 0) {
+                    pluralsHtml = `<div class="root">الجمع: ${entry.plurals.join('، ')}</div>`;
+                }
+                
+                // Only show root if it exists and is not empty
+                let rootHtml = '';
+                if (entry.root && entry.root.trim() !== '') {
+                    rootHtml = `<div class="root">الجذر: ${entry.root}</div>`;
+                }
+                
+                // Show sub-entries (related words) if available
+                let subEntriesHtml = '';
+                if (entry.subEntries && entry.subEntries.length > 0) {
+                    const subWords = entry.subEntries.map(sub => sub.word).join('، ');
+                    subEntriesHtml = `<div class="sub-entries"><strong>كلمات ذات صلة:</strong> ${subWords}</div>`;
+                }
+                
+                // Show page number if available
+                let pageHtml = '';
+                if (entry.page && entry.page > 0) {
+                    pageHtml = `<div class="page-ref">📄 صفحة ${entry.page}</div>`;
+                }
+                
+                return `
+                <div class="result-card">
+                    <div class="dictionary-name">${entry.dictionary_name || entry.dictionary || 'معجم غير معروف'}</div>
+                    <div class="headword">${entry.headword || ''}</div>
+                    ${rootHtml}
+                    ${pluralsHtml}
+                    ${subEntriesHtml}
+                    ${pageHtml}
+                    <div class="definition">${defs}</div>
+                </div>
+                `;
+            }).join('');
+        }
+
+        // Event listeners
+        searchBtn.addEventListener('click', () => {
+            hideAutocomplete();
+            performSearch();
+        });
+        
+        searchInput.addEventListener('keydown', handleKeyboardNavigation);
+        
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                if (selectedIndex >= 0 && isAutocompleteVisible) {
+                    selectSuggestion(selectedIndex);
+                } else {
+                    hideAutocomplete();
+                    performSearch();
+                }
+            }
+        });
+
+        // Autocomplete on input (debounced to 150ms for instant feel)
+        searchInput.addEventListener('input', debounce(function(e) {
+            const query = e.target.value.trim();
+            if (query.length >= 2) {
+                fetchSuggestions(query);
+            } else {
+                hideAutocomplete();
+            }
+        }, 150)); // Reduced from 300ms to 150ms!
+
+        // Focus/blur handlers
+        searchInput.addEventListener('focus', function() {
+            const query = this.value.trim();
+            if (query.length >= 2 && currentSuggestions.length > 0) {
+                autocompleteDropdown.classList.add('active');
+                isAutocompleteVisible = true;
+            }
+        });
+
+        // Close autocomplete when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !autocompleteDropdown.contains(e.target)) {
+                hideAutocomplete();
+            }
+        });
+        
+        dictionaryFilter.addEventListener('change', () => {
+            // Clear autocomplete cache when filter changes
+            autocompleteCache = {};
+            hideAutocomplete();
+            if (searchInput.value.trim()) performSearch();
+        });
+        
+        searchMode.addEventListener('change', () => {
+            if (searchInput.value.trim()) performSearch();
+        });
+
+        // Get query from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get('q');
+        if (query) {
+            searchInput.value = query;
+            performSearch();
+        }
+
+        // Load dictionaries on page load
+        loadDictionaries();
+
+        // Update URL when searching
+        function updateURL(query) {
+            const url = new URL(window.location);
+            url.searchParams.set('q', query);
+            window.history.pushState({}, '', url);
+        }
+
+        // Focus search input
+        searchInput.focus();
+    </script>
+</body>
+</html>

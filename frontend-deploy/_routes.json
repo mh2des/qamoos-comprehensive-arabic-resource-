@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "include": [
+    "/*"
+  ],
+  "exclude": [
+    "/grammar/data/*.json",
+    "/grammar/data/books-*.json",
+    "/grammar/data/book-details/*.json"
+  ]
+}

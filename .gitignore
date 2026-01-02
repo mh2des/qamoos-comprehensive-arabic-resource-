@@ -1,0 +1,137 @@
+# ========================================
+# QAMOOS.ORG - Git Ignore Configuration
+# ========================================
+
+# ==================== SECURITY ====================
+# NEVER commit these files - contain passwords/secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+secrets/
+credentials/
+
+# ==================== PYTHON ====================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+.virtualenv/
+
+# Byte-compiled / optimized files
+*.pyc
+*.pyo
+*.pyd
+
+# ==================== DATABASES ====================
+# SQLite databases (large binary files)
+*.sqlite
+*.sqlite3
+*.sqlite-journal
+*.db
+
+# ==================== LOGS ====================
+*.log
+logs/
+*.log.*
+scraper.log
+server_postgres.log
+deploy_log.txt
+deploy_output.log
+docker_build.log
+
+# ==================== IDE / EDITORS ====================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# ==================== OS FILES ====================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ==================== BUILD / DEPLOY ====================
+# Wrangler (Cloudflare)
+.wrangler/
+
+# Docker
+*.tar
+
+# ==================== ARCHIVE / UNUSED ====================
+# Old files not needed in repo
+_archive/
+
+# ==================== DATA FILES ====================
+# Source HTML files (too large for git, ~500MB)
+# Keep locally for extraction, but don't push
+/data/
+
+# Grammar raw HTML chapters (68MB) - generated from source
+frontend-deploy/grammar/data/books/
+
+# Large sitemap files (generated dynamically)
+frontend-deploy/sitemap-entries-*.xml
+
+# Old pages backup
+frontend-deploy/old_pages_backup/
+
+# ==================== TEMPORARY ====================
+*.tmp
+*.temp
+*.bak
+*.backup
+.cache/
+tmp/
+temp/
+
+# ==================== SCRAPER STATE ====================
+scraper_progress.json
+
+# ==================== MISC ====================
+.launch_path.txt
+nul
+
+# ==================== KEEP THESE (not ignored) ====================
+# These are tracked:
+# - backend_production/ (API server code)
+# - frontend-deploy/ (website code)
+# - docs_important/ (essential documentation)
+# - .github/ (GitHub configuration)
+# - README.md (main readme)
+# - TECH_STACK_AND_FEATURES.md (tech documentation)
+# - .env.example (template without secrets)

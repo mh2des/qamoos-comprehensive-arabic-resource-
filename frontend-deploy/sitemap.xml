@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Homepage - Highest Priority -->
+    <url>
+        <loc>https://qamoos.org/</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://qamoos.org/" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://qamoos.org/en/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://qamoos.org/" />
+    </url>
+    
+    <!-- Poetry Library -->
+    <url>
+        <loc>https://qamoos.org/poetry.html</loc>
+        <lastmod>2025-12-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://qamoos.org/poetry.html" />
+    </url>
+
+    <!-- Grammar Library -->
+    <url>
+        <loc>https://qamoos.org/grammar/</loc>
+        <lastmod>2025-12-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://qamoos.org/grammar/" />
+    </url>
+    
+    <!-- Search Page -->
+    <url>
+        <loc>https://qamoos.org/search</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://qamoos.org/search" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://qamoos.org/en/search" />
+    </url>
+    
+    <!-- About Page -->
+    <url>
+        <loc>https://qamoos.org/about</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://qamoos.org/about" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://qamoos.org/en/about" />
+    </url>
+    
+    <!-- Methodology Page -->
+    <url>
+        <loc>https://qamoos.org/methodology</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://qamoos.org/methodology" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://qamoos.org/en/methodology" />
+    </url>
+    
+    <!-- Sources Page -->
+    <url>
+        <loc>https://qamoos.org/sources</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://qamoos.org/sources" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://qamoos.org/en/sources" />
+    </url>
+    
+    <!-- Contact Page -->
+    <url>
+        <loc>https://qamoos.org/contact</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://qamoos.org/contact" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://qamoos.org/en/contact" />
+    </url>
+    
+    <!-- Privacy & Terms -->
+    <url>
+        <loc>https://qamoos.org/privacy</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    
+    <url>
+        <loc>https://qamoos.org/terms</loc>
+        <lastmod>2025-11-09</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    
+</urlset>

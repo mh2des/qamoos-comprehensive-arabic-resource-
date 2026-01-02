@@ -1,0 +1,22 @@
+# Optimized JSON files - lightweight summaries cache longer
+/grammar/data/books-summary.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=3600, s-maxage=7200
+
+/grammar/data/books-*.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=3600, s-maxage=7200
+
+/grammar/data/book-details/*.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=3600, s-maxage=7200
+
+# Legacy full books.json (fallback)
+/grammar/books.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=600
+
+# Book chapter HTML files
+/grammar/data/books/*
+  Content-Type: text/html; charset=utf-8
+  Cache-Control: public, max-age=7200, immutable

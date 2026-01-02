@@ -1,0 +1,52 @@
+{
+  "name": "القاموس العربي الشامل - Qamoos.org",
+  "short_name": "قاموس",
+  "description": "أشمل قاموس عربي رقمي مجاني - 9 معاجم تراثية ومعاصرة. 189,042 مدخل و 332,888 تعريف، شامل قاموس عربي-إنجليزي.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F8F5F0",
+  "theme_color": "#1B4332",
+  "orientation": "portrait-primary",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["education", "reference", "books", "utilities"],
+  "screenshots": [
+    {
+      "src": "/screenshot-1.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "label": "البحث في القاموس"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "بحث سريع",
+      "short_name": "بحث",
+      "description": "ابحث في القاموس مباشرة",
+      "url": "/search",
+      "icons": [
+        {
+          "src": "/icon-512.png",
+          "sizes": "512x512"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

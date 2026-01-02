@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الموسوعة الشعرية الشاملة | قصائد الجاهلية، العصر الإسلامي، والحديث | Qamoos Poetry</title>
+    <meta name="description"
+        content="أكبر موسوعة للشعر العربي: تصفح آلاف القصائد من العصر الجاهلي والأموي والعباسي وحتى العصر الحديث. ابحث عن أي شاعر أو قافية.">
+    <meta name="keywords"
+        content="شعر عربي, قصائد, العصر الجاهلي, شعراء المعلقات, المتنبي, شعر حديث, ديوان العرب, arabic poetry, poems, arabic literature">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="الموسوعة الشعرية الشاملة | ديوان العرب">
+    <meta property="og:description" content="تصفح آلاف القصائد العربية عبر العصور في أكبر قاعدة بيانات شعرية منظمة.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://qamoos.org/poetry">
+    <meta property="og:image" content="https://qamoos.org/icon-512.png">
+
+    <!-- Schema.org CollectionPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Arabic Poetry Library",
+      "description": "Comprehensive collection of Arabic poetry from all eras.",
+      "url": "https://qamoos.org/poetry",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Qamoos.org",
+        "url": "https://qamoos.org/"
+      }
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1B4332;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #2D6A4F;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #1B4332;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-title {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            margin: 2rem 0 1rem;
+            font-family: 'Amiri', serif;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .search-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        .search-input-wrapper {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-family: 'Cairo', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #2D6A4F;
+        }
+
+        .search-btn {
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #2D6A4F, #1B4332);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(45, 106, 79, 0.3);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 0.8rem 1.5rem;
+            background: white;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #2D6A4F;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #2D6A4F, #1B4332);
+            color: white;
+            border-color: transparent;
+        }
+
+        .tab-btn:hover:not(.active) {
+            border-color: #2D6A4F;
+        }
+
+        .content-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .poets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .poet-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .poet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-color: #2D6A4F;
+        }
+
+        .poet-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1B4332;
+            margin-bottom: 0.5rem;
+            font-family: 'Amiri', serif;
+        }
+
+        .poet-info {
+            color: #666;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .poems-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .poem-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-right: 4px solid #2D6A4F;
+        }
+
+        .poem-card:hover {
+            background: #e9ecef;
+            transform: translateX(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .poem-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1B4332;
+            margin-bottom: 0.5rem;
+            font-family: 'Amiri', serif;
+        }
+
+        .poem-meta {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .poem-preview {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #dee2e6;
+            font-family: 'Amiri', serif;
+            color: #495057;
+            line-height: 1.8;
+            white-space: pre-line;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .loading i {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .error {
+            background: #fee;
+            color: #c33;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #999;
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .page-btn {
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            color: #2D6A4F;
+        }
+
+        .page-btn:hover:not(.active) {
+            border-color: #2D6A4F;
+        }
+
+        .page-btn.active {
+            background: #2D6A4F;
+            color: white;
+            border-color: #2D6A4F;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #2D6A4F, #1B4332);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px 15px 0 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            font-family: 'Amiri', serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-subtitle {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .verse {
+            font-family: 'Amiri', serif;
+            font-size: 1.4rem;
+            /* Larger font */
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            /* Softer shadow */
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            direction: rtl;
+        }
+
+        .verse-number {
+            background: #E8F5E9;
+            /* Softer Badge */
+            color: #2D6A4F;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .verse-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex: 1;
+            width: 100%;
+            gap: 1rem;
+        }
+
+        .verse-content.centered {
+            justify-content: center;
+        }
+
+        .hemistich {
+            flex: 1;
+            text-align: center;
+            line-height: 1.8;
+            white-space: normal;
+            /* Allow wrap on small screens */
+        }
+
+        .hemistich.separator {
+            flex: 0 0 auto;
+            color: #D4AF37;
+            /* Gold */
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 600px) {
+            .verse {
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 1.5rem 1rem;
+            }
+
+            .verse-number {
+                align-self: center;
+                margin-bottom: 0.5rem;
+            }
+
+            .verse-content {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hemistich.separator {
+                display: none;
+                /* Hide star on mobile stack */
+            }
+
+            .hemistich {
+                text-align: center;
+                width: 100%;
+                border-bottom: 1px dashed #eee;
+                padding-bottom: 0.5rem;
+            }
+
+            .hemistich:last-child {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">
+                <i class="fas fa-book-open"></i> قاموس
+            </a>
+            <ul class="nav-links">
+                <li><a href="/"><i class="fas fa-home"></i> الرئيسية</a></li>
+                <li><a href="/search"><i class="fas fa-search"></i> البحث</a></li>
+                <li><a href="/grammar/"><i class="fas fa-book-reader"></i> علوم اللغة</a></li>
+                <li><a href="/poetry.html" class="active"><i class="fas fa-feather-alt"></i> الشعر</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">
+            <i class="fas fa-feather-alt"></i> مكتبة الشعر العربي
+        </h1>
+        <p class="page-subtitle">
+            اكتشف روائع الشعر العربي من مختلف العصور والشعراء
+        </p>
+
+        <div class="search-box">
+            <div class="search-input-wrapper">
+                <input type="text" class="search-input" id="poetrySearch"
+                    placeholder="ابحث عن شاعر أو قصيدة أو كلمة في الأبيات...">
+                <button class="search-btn" onclick="searchPoetry()">
+                    <i class="fas fa-search"></i> بحث
+                </button>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('poets')">
+                <i class="fas fa-users"></i> الشعراء
+            </button>
+            <button class="tab-btn" onclick="showTab('poems')">
+                <i class="fas fa-scroll"></i> القصائد
+            </button>
+            <button class="tab-btn" onclick="showTab('search')">
+                <i class="fas fa-search"></i> نتائج البحث
+            </button>
+        </div>
+
+        <div id="poetsSection" class="content-section active">
+            <div class="loading">
+                <i class="fas fa-spinner"></i> جاري تحميل الشعراء...
+            </div>
+        </div>
+
+        <div id="poemsSection" class="content-section">
+            <div class="loading">
+                <i class="fas fa-spinner"></i> جاري تحميل القصائد...
+            </div>
+        </div>
+
+        <div id="searchSection" class="content-section">
+            <div class="empty-state">
+                <i class="fas fa-search"></i>
+                <p>استخدم مربع البحث أعلاه للبحث في الشعر العربي</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="poemModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-modal" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <h2 class="modal-title" id="modalPoemTitle"></h2>
+                <p class="modal-subtitle" id="modalPoemMeta"></p>
+            </div>
+            <div class="modal-body" id="modalPoemBody">
+                <div class="loading">
+                    <i class="fas fa-spinner"></i> جاري التحميل...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Use relative API path for production (proxied by Cloudflare Worker)
+        // Use localhost for local development
+        const API_BASE = window.location.hostname === 'localhost'
+            ? 'http://localhost:5000'
+            : '';  // Empty string means relative path (e.g., /api/poets)
+
+        let currentTab = 'poets';
+        let currentPoetsPage = 1;
+        let currentPoemsPage = 1;
+        const ITEMS_PER_PAGE = 20;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPoets();
+        });
+
+        function showTab(tab) {
+            currentTab = tab;
+
+            // Update tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Update sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            if (tab === 'poets') {
+                document.getElementById('poetsSection').classList.add('active');
+                if (!document.querySelector('#poetsSection .poets-grid')) {
+                    loadPoets();
+                }
+            } else if (tab === 'poems') {
+                document.getElementById('poemsSection').classList.add('active');
+                if (!document.querySelector('#poemsSection .poems-list')) {
+                    loadPoems();
+                }
+            } else if (tab === 'search') {
+                document.getElementById('searchSection').classList.add('active');
+            }
+        }
+
+        async function loadPoets(page = 1) {
+            const section = document.getElementById('poetsSection');
+            section.innerHTML = '<div class="loading"><i class="fas fa-spinner"></i> جاري تحميل الشعراء...</div>';
+
+            try {
+                const offset = (page - 1) * ITEMS_PER_PAGE;
+                const response = await fetch(`${API_BASE}/api/poets?limit=${ITEMS_PER_PAGE}&offset=${offset}`);
+                const data = await response.json();
+
+                if (data.error) {
+                    section.innerHTML = `<div class="error">${data.error}</div>`;
+                    return;
+                }
+
+                const poets = data.poets || [];
+                if (poets.length === 0) {
+                    section.innerHTML = '<div class="empty-state"><i class="fas fa-user-slash"></i><p>لا يوجد شعراء</p></div>';
+                    return;
+                }
+
+                let html = '<div class="poets-grid">';
+                poets.forEach(poet => {
+                    html += `
+                        <div class="poet-card" onclick="showPoetPoems(${poet.poet_id}, '${poet.name_arabic}')">
+                            <div class="poet-name">${poet.name_arabic}</div>
+                            <div class="poet-info">
+                                <i class="fas fa-scroll"></i>
+                                ${poet.poems_count} قصيدة
+                            </div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+
+                // Add pagination if needed
+                if (data.count > ITEMS_PER_PAGE) {
+                    const totalPages = Math.ceil(data.count / ITEMS_PER_PAGE);
+                    html += '<div class="pagination">';
+                    for (let i = 1; i <= totalPages; i++) {
+                        html += `<button class="page-btn ${i === page ? 'active' : ''}" onclick="loadPoets(${i})">${i}</button>`;
+                    }
+                    html += '</div>';
+                }
+
+                section.innerHTML = html;
+            } catch (error) {
+                section.innerHTML = `<div class="error">حدث خطأ: ${error.message}</div>`;
+            }
+        }
+
+        async function loadPoems(page = 1, poetId = null) {
+            const section = document.getElementById('poemsSection');
+            section.innerHTML = '<div class="loading"><i class="fas fa-spinner"></i> جاري تحميل القصائد...</div>';
+
+            try {
+                const offset = (page - 1) * ITEMS_PER_PAGE;
+                let url = `${API_BASE}/api/poems?limit=${ITEMS_PER_PAGE}&offset=${offset}`;
+                if (poetId) {
+                    url += `&poet_id=${poetId}`;
+                }
+
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data.error) {
+                    section.innerHTML = `<div class="error">${data.error}</div>`;
+                    return;
+                }
+
+                const poems = data.poems || [];
+                if (poems.length === 0) {
+                    section.innerHTML = '<div class="empty-state"><i class="fas fa-file-alt"></i><p>لا توجد قصائد</p></div>';
+                    return;
+                }
+
+                let html = '<div class="poems-list">';
+                poems.forEach(poem => {
+                    html += `
+                        <div class="poem-card" onclick="showPoem(${poem.poem_id})">
+                            <div class="poem-title">${poem.title_arabic}</div>
+                            <div class="poem-meta">
+                                <i class="fas fa-align-left"></i> ${poem.verses_count} بيت
+                            </div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+
+                section.innerHTML = html;
+            } catch (error) {
+                section.innerHTML = `<div class="error">حدث خطأ: ${error.message}</div>`;
+            }
+        }
+
+        async function showPoetPoems(poetId, poetName) {
+            currentTab = 'poems';
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-btn')[1].classList.add('active');
+
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById('poemsSection').classList.add('active');
+
+            await loadPoems(1, poetId);
+        }
+
+        async function showPoem(poemId) {
+            const modal = document.getElementById('poemModal');
+            const modalBody = document.getElementById('modalPoemBody');
+
+            modal.classList.add('active');
+            modalBody.innerHTML = '<div class="loading"><i class="fas fa-spinner"></i> جاري التحميل...</div>';
+
+            try {
+                const response = await fetch(`${API_BASE}/api/poem/${poemId}`);
+                const poem = await response.json();
+
+                if (poem.error) {
+                    modalBody.innerHTML = `<div class="error">${poem.error}</div>`;
+                    return;
+                }
+
+                document.getElementById('modalPoemTitle').textContent = poem.title_arabic;
+                document.getElementById('modalPoemMeta').textContent =
+                    `${poem.poet_name || 'شاعر'} • ${poem.verses_count} بيت`;
+
+                let html = '';
+                const normalizePart = (text) => (text || '').trim();
+                const buildVerseRow = (number, firstPart, secondPart, fallbackText = '') => {
+                    let first = normalizePart(firstPart);
+                    let second = normalizePart(secondPart);
+
+                    // Smarter splitting logic if explicitly missing parts but have full text
+                    if ((!first || !second) && fallbackText) {
+                        // Try common Arabic poem separators: ***, quotes '', double spaces, tabs, or just big gaps
+                        // Regex looks for: 3 stars, OR 2+ spaces/tabs, OR specific markers
+                        const splitMatch = fallbackText.split(/\*{3}|\t|\s{4,}|[.]{3,}/);
+
+                        if (splitMatch.length >= 2) {
+                            first = normalizePart(splitMatch[0]);
+                            second = normalizePart(splitMatch[1]);
+                        } else {
+                            // Last resort: Split by approximate middle space if line is long enough
+                            const words = fallbackText.split(' ');
+                            if (words.length > 6) {
+                                const mid = Math.floor(words.length / 2);
+                                first = words.slice(0, mid).join(' ');
+                                second = words.slice(mid).join(' ');
+                            } else {
+                                first = fallbackText;
+                                second = '';
+                            }
+                        }
+                    }
+
+                    // Traditional Two-Column Layout (Side-by-Side)
+                    if (first && second) {
+                        return `
+                            <div class="verse">
+                                <div class="verse-number">${number}</div>
+                                <div class="verse-content">
+                                    <span class="hemistich first">${first}</span>
+                                    <span class="hemistich separator"><i class="fas fa-star-of-life"></i></span>
+                                    <span class="hemistich second">${second}</span>
+                                </div>
+                            </div>
+                        `;
+                    }
+
+                    // Single column fallback (rare)
+                    return `
+                        <div class="verse single-line">
+                            <div class="verse-number">${number}</div>
+                            <div class="verse-content centered">
+                                <span class="hemistich first">${first || second || fallbackText}</span>
+                            </div>
+                        </div>
+                    `;
+                };
+
+                // Show full_text if no verses
+                if (poem.full_text && (!poem.verses || poem.verses.length === 0)) {
+                    const lines = poem.full_text.split('\n');
+                    lines.forEach((line, index) => {
+                        const trimmed = line.trim();
+                        if (trimmed) {
+                            const [firstPart, secondPart] = trimmed.includes('***')
+                                ? trimmed.split('***')
+                                : [trimmed, ''];
+                            html += buildVerseRow(index + 1, firstPart, secondPart, trimmed);
+                        }
+                    });
+                } else if (poem.verses && poem.verses.length > 0) {
+                    poem.verses.forEach((verse, index) => {
+                        html += buildVerseRow(
+                            verse.verse_number || index + 1,
+                            verse.first_hemistich,
+                            verse.second_hemistich,
+                            verse.full_verse || ''
+                        );
+                    });
+                } else {
+                    html = '<div class="empty-state"><p>لا توجد أبيات متاحة</p></div>';
+                }
+
+                modalBody.innerHTML = html;
+            } catch (error) {
+                modalBody.innerHTML = `<div class="error">حدث خطأ: ${error.message}</div>`;
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('poemModal').classList.remove('active');
+        }
+
+        // Close modal on outside click
+        document.getElementById('poemModal').addEventListener('click', (e) => {
+            if (e.target.id === 'poemModal') {
+                closeModal();
+            }
+        });
+
+        async function searchPoetry() {
+            const query = document.getElementById('poetrySearch').value.trim();
+            if (!query) return;
+
+            currentTab = 'search';
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-btn')[2].classList.add('active');
+
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            const searchSection = document.getElementById('searchSection');
+            searchSection.classList.add('active');
+            searchSection.innerHTML = '<div class="loading"><i class="fas fa-spinner"></i> جاري البحث...</div>';
+
+            try {
+                const response = await fetch(`${API_BASE}/api/poetry/search?q=${encodeURIComponent(query)}`);
+                const data = await response.json();
+
+                if (data.error) {
+                    searchSection.innerHTML = `<div class="error">${data.error}</div>`;
+                    return;
+                }
+
+                const results = data.results || [];
+                if (results.length === 0) {
+                    searchSection.innerHTML = '<div class="empty-state"><i class="fas fa-search"></i><p>لا توجد نتائج</p></div>';
+                    return;
+                }
+
+                let html = '<div class="poems-list">';
+                results.forEach(poem => {
+                    html += `
+                        <div class="poem-card" onclick="showPoem(${poem.poem_id})">
+                            <div class="poem-title">${poem.title_arabic}</div>
+                            <div class="poem-meta">
+                                ${poem.poet_name ? `<i class="fas fa-user"></i> ${poem.poet_name} • ` : ''}
+                                <i class="fas fa-align-left"></i> ${poem.verses_count} بيت
+                            </div>
+                            ${poem.preview ? `<div class="poem-preview">${poem.preview}</div>` : ''}
+                        </div>
+                    `;
+                });
+                html += '</div>';
+
+                searchSection.innerHTML = html;
+            } catch (error) {
+                searchSection.innerHTML = `<div class="error">حدث خطأ: ${error.message}</div>`;
+            }
+        }
+
+        // Search on Enter key
+        document.getElementById('poetrySearch').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchPoetry();
+            }
+        });
+    </script>
+</body>
+
+</html>

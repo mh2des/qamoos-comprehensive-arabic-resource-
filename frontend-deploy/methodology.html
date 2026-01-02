@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المنهجية - القاموس العربي الشامل</title>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMTXZ4F8QF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZMTXZ4F8QF');
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Professional Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    
+    <style>
+        
+
+        /* Scroll Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #D4AF37 0%, #FFD700 100%);
+            width: 0%;
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Cairo', sans-serif; background: #F8F5F0; line-height: 1.8; color: #1B4332; }
+        .header { background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%); padding: 2rem; text-align: center; color: white; }
+        .header h1 { font-family: 'Amiri', serif; font-size: 2.5rem; margin-bottom: 0.5rem; color: #D4AF37; }
+        .container { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
+        .content { background: white; padding: 3rem; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+        .content h2 { color: #1B4332; font-size: 1.8rem; margin: 2rem 0 1rem; border-right: 4px solid #D4AF37; padding-right: 1rem; }
+        .content h3 { color: #2D6A4F; font-size: 1.4rem; margin: 1.5rem 0 0.75rem; }
+        .content p { margin-bottom: 1.5rem; color: #52796F; font-size: 1.1rem; }
+        .content ul, .content ol { margin: 1rem 0 1.5rem 2rem; color: #52796F; }
+        .content li { margin-bottom: 0.75rem; }
+        .highlight-box { background: #F8F5F0; padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0; border-right: 3px solid #D4AF37; }
+        .tech-stack { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+        .tech-item { background: #F8F5F0; padding: 1rem; border-radius: 8px; text-align: center; }
+        .tech-item strong { color: #1B4332; display: block; margin-bottom: 0.5rem; }
+        .back-link { display: inline-block; margin-top: 2rem; color: #1B4332; text-decoration: none; font-weight: 600; padding: 0.75rem 1.5rem; background: #D4AF37; border-radius: 8px; transition: all 0.3s; }
+        .back-link:hover { background: #1B4332; color: #D4AF37; }
+        .step { background: #F8F5F0; padding: 1.25rem; margin: 1rem 0; border-radius: 8px; border-right: 3px solid #95D5B2; }
+        .step strong { color: #1B4332; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+    
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="header" data-aos="fade-down">
+        <h1>منهجية القاموس العربي الشامل</h1>
+        <p>كيف نبني أكثر قاموس عربي شمولاً ودقة</p>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h2 data-aos="fade-right">🎯 الرؤية والهدف</h2>
+            <p>
+                نسعى لبناء <strong>أشمل منصة رقمية</strong> تجمع التراث اللغوي العربي من مختلف العصور في مكان واحد، مع توفير تجربة بحث سريعة ودقيقة وسهلة الاستخدام للجميع.
+            </p>
+
+            <div class="highlight-box">
+                <strong>📊 إحصائيات المشروع الحالية:</strong><br>
+                • 188,488 مدخل لغوي من 9 معاجم مختلفة<br>
+                • 332,888 تعريف دقيق ومفصل<br>
+                • قاموس عربي-إنجليزي بـ 53,244 مدخل<br>
+                • تغطية زمنية من القرن الثاني الهجري حتى 2025
+            </div>
+
+            <h2 data-aos="fade-right">🔬 منهجية استخراج البيانات</h2>
+            
+            <h3>المرحلة 1️⃣: اختيار المصادر</h3>
+            <p>نختار المعاجم بناءً على معايير صارمة:</p>
+            <ul>
+                <li><strong>الموثوقية:</strong> معاجم معترف بها من علماء اللغة</li>
+                <li><strong>التنوع الزمني:</strong> تغطية من التراث الكلاسيكي إلى المعاصر</li>
+                <li><strong>التخصص:</strong> معاجم عامة + معاجم متخصصة (فقهية، فلسفية، معاصرة)</li>
+                <li><strong>الشمولية:</strong> تغطية واسعة للمفردات العربية</li>
+            </ul>
+
+            <div class="step">
+                <strong>✅ المعاجم المختارة:</strong><br>
+                1. القاموس المحيط (الفيروزآبادي - 817 هـ) - 10,363 مدخل<br>
+                2. المعجم الوسيط (مجمع اللغة العربية) - 35,457 مدخل<br>
+                3. كتاب العين (الخليل بن أحمد) - 24,952 مدخل<br>
+                4. القاموس الفقهي - تخصصي<br>
+                5. التعريفات (الجرجاني) - مصطلحات إسلامية<br>
+                6. المحيط في اللغة - 40,000+ مدخل<br>
+                7. معجم اللغة العربية المعاصرة - مفردات حديثة<br>
+                8. المورد (عربي-إنجليزي) - 53,244 مدخل
+            </div>
+
+            <h3>المرحلة 2️⃣: استخراج وتحليل البيانات</h3>
+            <p>نستخدم تقنيات متقدمة لاستخراج البيانات من المصادر:</p>
+
+            <ol>
+                <li><strong>تحليل HTML:</strong> استخدام BeautifulSoup لتحليل ملفات HTML</li>
+                <li><strong>استخراج العناصر:</strong>
+                    <ul>
+                        <li>المدخل الرئيسي (الكلمة)</li>
+                        <li>التعريفات والمعاني</li>
+                        <li>الجذر اللغوي</li>
+                        <li>رقم الصفحة (إن وُجد)</li>
+                        <li>الباب والفصل</li>
+                    </ul>
+                </li>
+                <li><strong>التطبيع:</strong> إزالة التشكيل للبحث المرن</li>
+                <li><strong>التحقق:</strong> فحص جودة البيانات المستخرجة</li>
+            </ol>
+
+            <div class="highlight-box">
+                <strong>🔧 مثال على كود الاستخراج:</strong><br>
+                <code style="display: block; padding: 1rem; background: white; margin-top: 0.5rem; border-radius: 4px; direction: ltr; text-align: left; font-size: 0.9rem;">
+from bs4 import BeautifulSoup<br>
+# تحليل HTML واستخراج المداخل<br>
+entry = soup.find('div', class_='Entry')<br>
+headword = entry.find('b').text.strip()<br>
+definition = entry.get_text()
+                </code>
+            </div>
+
+            <h3>المرحلة 3️⃣: بناء قاعدة البيانات</h3>
+            <p>نستخدم <strong>SQLite</strong> لتخزين البيانات بهيكل محكم:</p>
+
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <strong>dictionaries</strong>
+                    معلومات المعاجم
+                </div>
+                <div class="tech-item">
+                    <strong>chapters</strong>
+                    الأبواب والفصول
+                </div>
+                <div class="tech-item">
+                    <strong>entries</strong>
+                    المداخل اللغوية
+                </div>
+                <div class="tech-item">
+                    <strong>definitions</strong>
+                    التعريفات والمعاني
+                </div>
+            </div>
+
+            <p><strong>العلاقات بين الجداول:</strong></p>
+            <ul>
+                <li>كل معجم يحتوي على أبواب (chapters)</li>
+                <li>كل باب يحتوي على أقسام (sections)</li>
+                <li>كل قسم يحتوي على مداخل (entries)</li>
+                <li>كل مدخل يحتوي على تعريفات (definitions)</li>
+            </ul>
+
+            <h2 data-aos="fade-right">⚡ تحسين الأداء</h2>
+            
+            <h3>1. فهرسة البيانات (Indexing)</h3>
+            <ul>
+                <li><strong>FTS5:</strong> فهرسة نصية كاملة للبحث السريع</li>
+                <li><strong>Indexes:</strong> فهارس على headword_normalized وroot</li>
+                <li><strong>Dictionary filtering:</strong> فهرسة على dictionary_id</li>
+            </ul>
+
+            <h3>2. تقنية البحث الذكي</h3>
+            <div class="step">
+                <strong>الترتيب حسب الأولوية:</strong><br>
+                1️⃣ مطابقة تامة (headword = query) - الأولوية الأولى<br>
+                2️⃣ يبدأ بـ (headword LIKE query%) - الأولوية الثانية<br>
+                3️⃣ يحتوي على (headword LIKE %query%) - الأولوية الثالثة<br>
+                4️⃣ مطابقة الجذر (root matches) - الأولوية الرابعة<br>
+                5️⃣ بحث في النص الكامل - الأولوية الخامسة<br>
+                6️⃣ بحث في التعريفات الإنجليزية (للقاموس الثنائي)
+            </div>
+
+            <h3>3. تطبيع النص العربي</h3>
+            <p>نزيل التشكيل من النصوص للبحث المرن:</p>
+            <ul>
+                <li>إزالة الفتحة، الضمة، الكسرة</li>
+                <li>إزالة التنوين والشدة والسكون</li>
+                <li>الحفاظ على النص الأصلي للعرض</li>
+                <li>استخدام النص المطبّع للبحث</li>
+            </ul>
+
+            <h2 data-aos="fade-right">🌐 البنية التقنية</h2>
+
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <strong>Backend</strong>
+                    Python + Flask
+                </div>
+                <div class="tech-item">
+                    <strong>Database</strong>
+                    SQLite + FTS5
+                </div>
+                <div class="tech-item">
+                    <strong>Frontend</strong>
+                    HTML5 + CSS3 + Vanilla JS
+                </div>
+                <div class="tech-item">
+                    <strong>PWA</strong>
+                    Service Worker + Manifest
+                </div>
+            </div>
+
+            <h3>API Endpoints</h3>
+            <ul>
+                <li><code>/api/search</code> - البحث عن كلمات</li>
+                <li><code>/api/dictionaries</code> - قائمة المعاجم</li>
+                <li><code>/api/stats</code> - الإحصائيات</li>
+                <li><code>/api/chapters</code> - الأبواب والفصول</li>
+                <li><code>/api/browse/:chapter</code> - تصفح باب معين</li>
+            </ul>
+
+            <h2 data-aos="fade-right">✅ ضمان الجودة</h2>
+
+            <h3>1. التحقق من البيانات</h3>
+            <ul>
+                <li>فحص اكتمال المداخل (headword موجود)</li>
+                <li>التحقق من وجود تعريفات لكل مدخل</li>
+                <li>فحص الترميز (UTF-8 صحيح)</li>
+                <li>إزالة المداخل المكررة</li>
+            </ul>
+
+            <h3>2. الاختبار</h3>
+            <div class="step">
+                <strong>اختبارات آلية:</strong><br>
+                • اختبار البحث (test_search.py)<br>
+                • اختبار الأداء (test_performance.py)<br>
+                • اختبار قاعدة البيانات (validate_database.py)<br>
+                • اختبار API (test_api.py)
+            </div>
+
+            <h3>3. المراجعة اليدوية</h3>
+            <ul>
+                <li>فحص عينات عشوائية من المداخل</li>
+                <li>التحقق من دقة التعريفات</li>
+                <li>مراجعة الأخطاء المحتملة</li>
+                <li>تحسين نتائج البحث باستمرار</li>
+            </ul>
+
+            <h2 data-aos="fade-right">🔄 التحديث المستمر</h2>
+            <p>نعمل على تحسين المنصة باستمرار من خلال:</p>
+            <ul>
+                <li><strong>إضافة معاجم جديدة:</strong> نوسع التغطية بمعاجم إضافية</li>
+                <li><strong>تحسين الخوارزميات:</strong> نطور خوارزميات البحث والترتيب</li>
+                <li><strong>إصلاح الأخطاء:</strong> نراجع ونصحح أي أخطاء في البيانات</li>
+                <li><strong>الاستماع للمستخدمين:</strong> نستقبل الملاحظات ونطبقها</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>📈 إحصائيات الجودة:</strong><br>
+                • معدل دقة البيانات: أكثر من 95%<br>
+                • سرعة البحث: أقل من 100 ميلي ثانية<br>
+                • التغطية: 188,488 مدخل من 9 معاجم<br>
+                • معدل نجاح البحث: أكثر من 90%
+            </div>
+
+            <h2 data-aos="fade-right">🤝 المساهمة والتطوير</h2>
+            <p>
+                نرحب بمساهمات المجتمع في تحسين القاموس. يمكنك المساهمة من خلال:</p>
+            </p>
+            <ul>
+                <li>الإبلاغ عن أخطاء في البيانات</li>
+                <li>اقتراح معاجم جديدة للإضافة</li>
+                <li>تحسين خوارزميات البحث</li>
+                <li>ترجمة الواجهة للغات أخرى</li>
+            </ul>
+
+            <a href="/" class="back-link">← العودة للصفحة الرئيسية</a>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Scroll progress bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const progressBar = document.getElementById('progressBar');
+            if (progressBar) {
+                progressBar.style.width = scrolled + '%';
+            }
+        });
+    </script>
+
+</body>
+</html>

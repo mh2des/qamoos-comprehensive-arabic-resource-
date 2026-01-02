@@ -1,0 +1,18 @@
+# Robots.txt for Qamoos.org - Arabic Dictionary
+# Allow all search engines to index all content
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Main Sitemap Index (includes all 189,042+ dictionary entries)
+Sitemap: https://qamoos.org/sitemap-index.xml
+
+# Individual sitemaps (referenced in sitemap-index.xml)
+Sitemap: https://qamoos.org/sitemap.xml
+
+# Crawl delay (optional - only if needed)
+# Crawl-delay: 1
+
+# Block specific bots if needed (currently allowing all)
+# User-agent: BadBot
+# Disallow: /

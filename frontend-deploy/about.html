@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عن القاموس - القاموس العربي الشامل</title>
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMTXZ4F8QF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZMTXZ4F8QF');
+    </script>
+    
+    <!-- Font Awesome Professional Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/common.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background: #F8F5F0; 
+            line-height: 1.8;
+            color: #1B4332;
+            overflow-x: hidden;
+        }
+        
+        /* Scroll progress bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #D4AF37 0%, #74C69D 100%);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        
+        .container { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
+        
+        .header { 
+            background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #1B4332 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 10s ease infinite;
+            padding: 3rem 2rem; 
+            text-align: center; 
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .header h1 { 
+            font-family: 'Amiri', serif; 
+            font-size: 2.8rem; 
+            margin-bottom: 0.5rem; 
+            color: #D4AF37;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .content { 
+            background: white; 
+            padding: 3rem; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
+            margin-top: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+        
+        .content h2 { 
+            color: #1B4332; 
+            font-size: 1.9rem; 
+            margin: 2.5rem 0 1.5rem; 
+            border-right: 5px solid #D4AF37; 
+            padding-right: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .content h2:hover {
+            padding-right: 2rem;
+            color: #2D6A4F;
+        }
+        
+        .content h2 i {
+            margin-left: 0.5rem;
+            color: #D4AF37;
+        }
+        
+        .content p { 
+            margin-bottom: 1.5rem; 
+            color: #52796F; 
+            font-size: 1.1rem; 
+            line-height: 1.8;
+        }
+        
+        .stat-box { 
+            background: linear-gradient(135deg, #F8F5F0 0%, #fff 100%);
+            padding: 2rem; 
+            border-radius: 16px; 
+            margin: 2rem 0; 
+            border-right: 4px solid #D4AF37;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-box:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .dict-list { 
+            list-style: none; 
+            padding: 0;
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .dict-list li { 
+            padding: 1.5rem; 
+            margin: 0; 
+            background: linear-gradient(135deg, #F8F5F0 0%, #fff 100%);
+            border-radius: 12px;
+            border-right: 4px solid #74C69D;
+            transition: all 0.4s ease;
+        }
+        
+        .dict-list li:hover {
+            transform: translateX(-10px);
+            border-right-color: #D4AF37;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .dict-list li strong { 
+            color: #1B4332; 
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .dict-list li strong i {
+            margin-left: 0.5rem;
+            color: #74C69D;
+        }
+        
+        .back-link { 
+            display: inline-block; 
+            margin-top: 2rem; 
+            color: #1B4332; 
+            text-decoration: none; 
+            font-weight: 600;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #D4AF37 0%, #B8941F 100%);
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(212,175,55,0.3);
+        }
+        
+        .back-link:hover { 
+            background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 100%);
+            color: #D4AF37;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(27,67,50,0.4);
+        }
+        
+        .back-link i {
+            margin-right: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .content { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <div class="header">
+        <h1 data-aos="fade-down">عن القاموس العربي الشامل</h1>
+        <p data-aos="fade-up" data-aos-delay="200">رحلتنا في الحفاظ على التراث اللغوي العربي</p>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h2 data-aos="fade-right"><i class="fas fa-book-open"></i> ما هو القاموس العربي الشامل؟</h2>
+            <p data-aos="fade-up">
+                القاموس العربي الشامل هو منصة رقمية متقدمة تجمع <strong>تسعة من أهم المعاجم العربية</strong> التراثية والمعاصرة، بالإضافة إلى قاموس عربي-إنجليزي شامل، في مكان واحد. نهدف إلى تسهيل الوصول إلى الثروة اللغوية العربية لجميع الباحثين والمتعلمين والمهتمين باللغة العربية.
+            </p>
+
+            <div class="stat-box" data-aos="zoom-in" data-aos-delay="300">
+                <strong><i class="fas fa-chart-bar"></i> إحصائيات المنصة:</strong><br>
+                • 188,488 مدخل لغوي<br>
+                • 332,888 تعريف دقيق<br>
+                • 9 معاجم شاملة<br>
+                • قاموس عربي-إنجليزي بـ 53,244 مدخل<br>
+                • بحث ذكي بتقنية متقدمة<br>
+                • تغطية من التراث إلى المعاصرة
+            </div>
+
+            <h2 data-aos="fade-right"><i class="fas fa-books"></i> المعاجم المتوفرة</h2>
+            <ul class="dict-list">
+                <li data-aos="fade-right" data-aos-delay="100">
+                    <strong><i class="fas fa-bookmark"></i> 1. القاموس المحيط</strong><br>
+                    للفيروزآبادي (817 هـ) - من أشهر القواميس العربية الكلاسيكية
+                </li>
+                <li data-aos="fade-right" data-aos-delay="150">
+                    <strong><i class="fas fa-bookmark"></i> 2. المعجم الوسيط</strong><br>
+                    مجمع اللغة العربية بالقاهرة - المرجع الأساسي للغة العربية الحديثة
+                </li>
+                <li data-aos="fade-right" data-aos-delay="200">
+                    <strong><i class="fas fa-bookmark"></i> 3. كتاب العين</strong><br>
+                    للخليل بن أحمد الفراهيدي - أول معجم عربي في التاريخ
+                </li>
+                <li data-aos="fade-right" data-aos-delay="250">
+                    <strong><i class="fas fa-gavel"></i> 4. القاموس الفقهي لغة واصطلاحاً</strong><br>
+                    د. سعدي أبو حبيب - متخصص في المصطلحات الفقهية والشرعية
+                </li>
+                <li data-aos="fade-right" data-aos-delay="300">
+                    <strong><i class="fas fa-bookmark"></i> 5. التعريفات</strong><br>
+                    للجرجاني (816 هـ) - معجم المصطلحات الإسلامية والفلسفية
+                </li>
+                <li data-aos="fade-right" data-aos-delay="350">
+                    <strong><i class="fas fa-bookmark"></i> 6. المحيط في اللغة</strong><br>
+                    للصاحب بن عباد (385 هـ) - معجم شامل يضم أكثر من 40 ألف مدخل
+                </li>
+                <li data-aos="fade-right" data-aos-delay="400">
+                    <strong><i class="fas fa-calendar-alt"></i> 7. معجم اللغة العربية المعاصرة</strong><br>
+                    د. أحمد مختار عبد الحميد عمر (2008) - يغطي المفردات الحديثة والمعاصرة
+                </li>
+                <li data-aos="fade-right" data-aos-delay="450">
+                    <strong><i class="fas fa-language"></i> 8. المورد - قاموس عربي إنجليزي</strong><br>
+                    مساهمو FreeDict / Arabeyes - 53,244 مدخل عربي مترجم للإنجليزية
+                </li>
+                <li data-aos="fade-right" data-aos-delay="500">
+                    <strong><i class="fas fa-bookmark"></i> 9. الصحاح (تاج اللغة وصحاح العربية)</strong><br>
+                    للجوهري (393 هـ / 1003 م) - أول معجم رتّب على القافية، من أدق المعاجم العربية
+                </li>
+            </ul>
+
+            <h2 data-aos="fade-right"><i class="fas fa-bullseye"></i> لماذا القاموس العربي الشامل؟</h2>
+            <p data-aos="fade-up" data-aos-delay="100"><i class="fas fa-layer-group"></i> <strong>1. الشمولية:</strong> جمعنا 9 معاجم في منصة واحدة بدلاً من البحث في عدة مصادر</p>
+            <p data-aos="fade-up" data-aos-delay="150"><i class="fas fa-globe-americas"></i> <strong>2. ثنائي اللغة:</strong> قاموس عربي-إنجليزي شامل بأكثر من 53 ألف مدخل</p>
+            <p data-aos="fade-up" data-aos-delay="200"><i class="fas fa-bolt"></i> <strong>3. السرعة:</strong> بحث فوري ونتائج في أقل من ثانية</p>
+            <p data-aos="fade-up" data-aos-delay="250"><i class="fas fa-brain"></i> <strong>4. الذكاء:</strong> نظام بحث متقدم يفهم المطابقة التامة، الجذور، والكلمات المشابهة والبحث بالإنجليزية</p>
+            <p data-aos="fade-up" data-aos-delay="300"><i class="fas fa-gift"></i> <strong>5. المجانية:</strong> كل المحتوى مجاني 100% بدون اشتراكات</p>
+            <p data-aos="fade-up" data-aos-delay="350"><i class="fas fa-mobile-alt"></i> <strong>6. الحداثة:</strong> تصميم عصري وسهل الاستخدام على جميع الأجهزة</p>
+
+            <h2 data-aos="fade-right"><i class="fas fa-lightbulb"></i> كيف تستخدم القاموس؟</h2>
+            <p data-aos="fade-up" data-aos-delay="100"><i class="fas fa-search"></i> <strong>1. ابحث:</strong> أدخل الكلمة التي تريد البحث عنها</p>
+            <p data-aos="fade-up" data-aos-delay="150"><i class="fas fa-filter"></i> <strong>2. اختر الفلتر:</strong> حدد نوع البحث (مطابق تماماً، يبدأ بـ، يحتوي على، أو الجذر)</p>
+            <p data-aos="fade-up" data-aos-delay="200"><i class="fas fa-book"></i> <strong>3. حدد المعجم:</strong> ابحث في معجم محدد أو في جميع المعاجم</p>
+            <p data-aos="fade-up" data-aos-delay="250"><i class="fas fa-list"></i> <strong>4. تصفح النتائج:</strong> استعرض التعريفات من مختلف المعاجم</p>
+
+            <h2 data-aos="fade-right"><i class="fas fa-rocket"></i> مستقبل المشروع</h2>
+            <p>
+                نعمل باستمرار على تطوير المنصة وإضافة ميزات جديدة مثل:
+                <br><i class="fas fa-plus-circle"></i> إضافة معاجم جديدة
+                <br><i class="fas fa-microphone"></i> البحث الصوتي المتقدم
+                <br><i class="fas fa-heart"></i> حفظ الكلمات المفضلة
+                <br><i class="fas fa-mobile-screen"></i> تطبيق للهواتف الذكية
+                <br><i class="fas fa-code"></i> API للمطورين
+            </p>
+
+            <h2><i class="fas fa-phone"></i> تواصل معنا</h2>
+            <p>
+                نسعد بتلقي ملاحظاتكم واقتراحاتكم:<br>
+                <i class="fas fa-envelope"></i> البريد الإلكتروني: <strong>info@qamoos.org</strong><br>
+                <i class="fab fa-twitter"></i> تويتر: <strong><a href="https://x.com/qamoos_ar" target="_blank" rel="noopener">@qamoos_ar</a></strong><br>
+                <i class="fab fa-instagram"></i> إنستغرام: <strong><a href="https://www.instagram.com/qamoos_ar" target="_blank" rel="noopener">@qamoos_ar</a></strong>
+            </p>
+
+            <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> العودة للصفحة الرئيسية</a>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Scroll progress bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+    </script>
+</body>
+</html>
