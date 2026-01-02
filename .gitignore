@@ -102,13 +102,28 @@ _archive/
 /data/
 
 # Grammar raw HTML chapters (68MB) - generated from source
-frontend-deploy/grammar/data/books/
+frontend-deploy/grammar/data/
+
+# Large grammar JSON (1.5MB) - served from live site
+frontend-deploy/grammar/books.json
+frontend-deploy/grammar/exercises.json
+
+# Verification files (sensitive)
+frontend-deploy/BingSiteAuth.xml
 
 # Large sitemap files (generated dynamically)
 frontend-deploy/sitemap-entries-*.xml
 
 # Old pages backup
 frontend-deploy/old_pages_backup/
+
+# Backend utility scripts (not needed for deployment)
+backend_production/create_poetry_tables.py
+backend_production/extract_dictionary_v2.py
+backend_production/generate_dynamic_sitemap.py
+backend_production/deploy_cloud_run.sh
+backend_production/*.log
+backend_production/scraper_progress.json
 
 # ==================== TEMPORARY ====================
 *.tmp
