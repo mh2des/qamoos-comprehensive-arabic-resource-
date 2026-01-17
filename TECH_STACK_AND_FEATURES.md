@@ -1,4 +1,4 @@
-# 🛠️ Complete Tech Stack & Features - Qamoos.org
+s# 🛠️ Complete Tech Stack & Features - Qamoos.org
 
 **Last Updated**: January 2, 2026
 

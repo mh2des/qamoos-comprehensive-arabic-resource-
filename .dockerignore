@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# Database files
+*.sqlite
+*.sqlite-journal
+*.dump
+qamoos_export.sql
+qamoos_backup.dump
+
+# Data files
+data/
+tmp/
+scripts/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docs
+docs/
+*.md
+!README.md
+
+# Tests
+test_*.py
+test_*.html
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

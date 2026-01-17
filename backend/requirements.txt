@@ -1,0 +1,16 @@
+# القاموس المحيط Dictionary Extraction System
+# Python Dependencies
+
+# HTML Parsing
+beautifulsoup4==4.12.2
+lxml==4.9.3
+
+# Database (built-in sqlite3 is sufficient, but for compatibility)
+# No additional database packages needed - using built-in sqlite3
+
+# Progress tracking (optional)
+tqdm==4.66.1
+
+# Development tools (optional)
+pytest==7.4.3
+pytest-cov==4.1.0

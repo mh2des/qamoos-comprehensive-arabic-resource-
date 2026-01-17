@@ -1,0 +1,15 @@
+# PostgreSQL Deployment Requirements
+# ==================================
+
+# Core dependencies
+Flask==3.0.0
+Flask-CORS==4.0.0
+psycopg2-binary==2.9.9
+
+# Optional but recommended for production
+gunicorn==21.2.0          # WSGI server for production
+python-dotenv==1.0.0      # Environment variable management
+
+# For migration only
+# (can be removed after migration)
+# psycopg2-binary already included above
